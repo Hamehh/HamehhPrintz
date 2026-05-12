@@ -56,35 +56,19 @@ section{padding:2.5rem 1.5rem;max-width:1200px;margin:0 auto;}
 .card-charity{font-size:10px;color:var(--text-light);margin-top:5px;}
 
 /* PAYMENT PAGE */
-.pay-intro{font-size:13px;color:var(--text-muted);line-height:1.9;margin-bottom:2rem;max-width:560px;}
-.pay-amount-row{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem;flex-wrap:wrap;}
-.pay-amount-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);}
-.pay-amount-input{
-  font-family:'VT323',monospace;font-size:28px;color:var(--black);
-  background:var(--surface);border:1px solid rgba(0,0,0,0.2);
-  border-bottom:2px solid var(--red);
-  padding:.3rem .8rem;width:140px;outline:none;
-}
-.pay-amount-input:focus{border-color:var(--red);}
-.pay-note-input{
-  font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text-muted);
-  background:var(--surface);border:1px solid rgba(0,0,0,0.2);
-  border-bottom:2px solid var(--red-border);
-  padding:.4rem .8rem;width:100%;max-width:400px;outline:none;margin-bottom:2.5rem;display:block;
-}
-.pay-note-input:focus{border-bottom-color:var(--red);}
-.pay-methods{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:3px;margin-bottom:2rem;}
+.pay-intro{font-size:13px;color:var(--text-muted);line-height:1.9;margin-bottom:2.5rem;max-width:520px;}
+.pay-methods{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:3px;margin-bottom:2rem;}
 .pay-card{
   background:var(--surface);border:1px solid rgba(0,0,0,0.15);
-  padding:1.8rem 1.5rem;text-align:center;
+  padding:2.5rem 1.5rem;text-align:center;
   cursor:pointer;transition:all 0.2s;text-decoration:none;display:block;
 }
 .pay-card:hover{border-color:var(--red);transform:translateY(-2px);}
-.pay-card-icon{font-size:36px;margin-bottom:.8rem;}
-.pay-card-name{font-family:'VT323',monospace;font-size:24px;letter-spacing:3px;color:var(--black);margin-bottom:.4rem;}
-.pay-card-handle{font-size:12px;color:var(--red);letter-spacing:1px;}
-.pay-card-note{font-size:10px;color:var(--text-light);margin-top:.5rem;line-height:1.6;}
-.pay-tip{font-size:11px;color:var(--text-light);letter-spacing:1px;padding:1rem;border:1px solid rgba(0,0,0,0.1);background:var(--surface);max-width:560px;}
+.pay-card-icon{font-size:44px;margin-bottom:1rem;}
+.pay-card-name{font-family:'VT323',monospace;font-size:28px;letter-spacing:3px;color:var(--black);margin-bottom:.5rem;}
+.pay-card-handle{font-size:13px;color:var(--red);letter-spacing:1px;margin-bottom:.5rem;}
+.pay-card-note{font-size:11px;color:var(--text-light);line-height:1.7;}
+.pay-tip{font-size:11px;color:var(--text-light);letter-spacing:1px;padding:1rem 1.2rem;border:1px solid rgba(0,0,0,0.1);background:var(--surface);max-width:560px;line-height:1.8;}
 .pay-tip::before{content:'> ';color:var(--red);}
 
 /* ABOUT */
@@ -278,41 +262,25 @@ footer a{color:var(--red);text-decoration:none;}
       <div class="sec-head-line"><h2>Pay</h2></div>
       <div class="sec-underline"></div>
     </div>
-    <p class="pay-intro">Enter your order amount below, then choose your preferred payment method. All three options are instant and secure.</p>
-
-    <div class="pay-amount-row">
-      <span class="pay-amount-label">Amount: $</span>
-      <input class="pay-amount-input" type="number" id="pay-amount" placeholder="0.00" min="0" step="0.01" oninput="updateLinks()">
-    </div>
-
-    <input class="pay-note-input" type="text" id="pay-note" placeholder="Order note (e.g. Palestine keychain x2)" oninput="updateLinks()">
-
+    <p class="pay-intro">Choose your preferred payment method below. Tap the option that works best for you and send the amount confirmed in your order.</p>
     <div class="pay-methods">
 
-      <a class="pay-card" id="link-cashapp" href="https://cash.app/$hamehh" target="_blank">
+      <a class="pay-card" href="https://cash.app/$hamehh" target="_blank">
         <div class="pay-card-icon">&#x1F4B8;</div>
         <div class="pay-card-name">Cash App</div>
         <div class="pay-card-handle">$hamehh</div>
         <div class="pay-card-note">Tap to open Cash App and send payment directly.</div>
       </a>
 
-      <a class="pay-card" id="link-paypal" href="https://paypal.me/Hamehhh" target="_blank">
+      <a class="pay-card" href="https://paypal.me/Hamehhh" target="_blank">
         <div class="pay-card-icon">&#x1F4B3;</div>
         <div class="pay-card-name">PayPal</div>
         <div class="pay-card-handle">paypal.me/Hamehhh</div>
         <div class="pay-card-note">Works worldwide. No PayPal account required to pay.</div>
       </a>
 
-      <a class="pay-card" id="link-zelle" href="mailto:hamehhprintz@gmail.com" target="_blank">
-        <div class="pay-card-icon">&#x1F4F1;</div>
-        <div class="pay-card-name">Zelle</div>
-        <div class="pay-card-handle">hamehhprintz@gmail.com</div>
-        <div class="pay-card-note">Open your bank app, send to the email above via Zelle.</div>
-      </a>
-
     </div>
-
-    <div class="pay-tip">After payment, email hamehhprintz@gmail.com with your order details and shipping address.</div>
+    <div class="pay-tip">After payment, email hamehhprintz@gmail.com with your order details and shipping address to confirm your order.</div>
   </section>
 </div>
 
@@ -382,26 +350,6 @@ function showPage(name) {
   document.getElementById('page-' + name).classList.add('active');
   document.getElementById('nav-' + name).classList.add('active');
   window.scrollTo(0, 0);
-}
-
-function updateLinks() {
-  const amt = parseFloat(document.getElementById('pay-amount').value) || '';
-  const note = encodeURIComponent(document.getElementById('pay-note').value || 'Hamehh order');
-
-  // Cash App deep link with amount
-  const caLink = amt
-    ? `https://cash.app/$hamehh/${amt}`
-    : `https://cash.app/$hamehh`;
-  document.getElementById('link-cashapp').href = caLink;
-
-  // PayPal.me with amount
-  const ppLink = amt
-    ? `https://paypal.me/Hamehhh/${amt}USD`
-    : `https://paypal.me/Hamehhh`;
-  document.getElementById('link-paypal').href = ppLink;
-
-  // Zelle has no deep link — keep email
-  document.getElementById('link-zelle').href = `mailto:hamehhprintz@gmail.com?subject=Zelle%20Payment&body=Hi%2C%20I%20sent%20a%20Zelle%20payment%20of%20%24${amt || '___'}%20for%20my%20order.%20${note}`;
 }
 
 function openModal(id) {
