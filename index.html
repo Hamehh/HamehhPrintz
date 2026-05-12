@@ -8,157 +8,103 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --bg:#6b6f6e;
-  --surface:#5e6261;
-  --surface2:#535756;
-  --red:#cc0000;
-  --red-bright:#ff1a1a;
-  --red-dim:rgba(204,0,0,0.18);
-  --red-border:rgba(204,0,0,0.35);
-  --black:#0a0a0a;
-  --text:#0a0a0a;
-  --text-dim:#1a1a1a;
-  --text-muted:#2e2e2e;
-  --text-light:#3a3a3a;
+  --bg:#6b6f6e;--surface:#5e6261;--surface2:#535756;
+  --red:#cc0000;--red-bright:#ff1a1a;--red-dim:rgba(204,0,0,0.18);--red-border:rgba(204,0,0,0.35);
+  --black:#0a0a0a;--text:#0a0a0a;--text-dim:#1a1a1a;--text-muted:#2e2e2e;--text-light:#3a3a3a;
 }
 html,body{background:var(--bg);color:var(--text);font-family:'Share Tech Mono',monospace;min-height:100vh;overflow-x:hidden;}
 body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.03) 3px,rgba(0,0,0,0.03) 4px);}
 nav,main,footer{position:relative;z-index:2;}
-
-nav{
-  border-bottom:2px solid var(--red);
-  background:rgba(91,95,94,0.97);
-  backdrop-filter:blur(4px);
-  padding:0 1.5rem;height:56px;
-  display:flex;align-items:center;justify-content:space-between;
-  position:sticky;top:0;z-index:10;
-}
-.nav-logo{font-family:'VT323',monospace;font-size:28px;color:var(--black);letter-spacing:4px;}
+nav{border-bottom:2px solid var(--red);background:rgba(91,95,94,0.97);backdrop-filter:blur(4px);padding:0 1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.nav-logo{font-family:'VT323',monospace;font-size:32px;color:var(--black);letter-spacing:4px;}
 .nav-links{display:flex;gap:1.5rem;}
-.nav-links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:color 0.15s;}
+.nav-links a{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:color 0.15s;}
 .nav-links a:hover,.nav-links a.active{color:var(--red);}
-
-.page{display:none;}
-.page.active{display:block;}
-
-.hero{
-  height:calc(100dvh - 56px);
-  min-height:400px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:2rem 1.5rem;
-}
-.hero h1{
-  font-family:'VT323',monospace;
-  font-size:clamp(3.5rem,14vw,9rem);
-  color:var(--black);letter-spacing:8px;line-height:1;margin-bottom:1rem;
-}
-.hero-sub{
-  font-size:11px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--text-muted);margin-bottom:2.5rem;
-  border-top:1px solid var(--red-border);
-  border-bottom:1px solid var(--red-border);
-  padding:.6rem 1.5rem;display:inline-block;
-}
+.page{display:none;}.page.active{display:block;}
+.hero{height:calc(100dvh - 60px);min-height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.5rem;}
+.hero h1{font-family:'VT323',monospace;font-size:clamp(3.5rem,14vw,9rem);color:var(--black);letter-spacing:8px;line-height:1;margin-bottom:1rem;}
+.hero-sub{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);margin-bottom:2.5rem;border-top:1px solid var(--red-border);border-bottom:1px solid var(--red-border);padding:.6rem 1.5rem;display:inline-block;}
 .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.btn{
-  font-family:'Share Tech Mono',monospace;font-size:11px;
-  letter-spacing:2px;text-transform:uppercase;
-  padding:11px 22px;border-radius:0;cursor:pointer;transition:all 0.15s;
-}
+.btn{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;border-radius:0;cursor:pointer;transition:all 0.15s;}
 .btn-solid{background:var(--red);color:#fff;border:1px solid var(--red);}
-.btn-solid:hover{background:var(--red-bright);border-color:var(--red-bright);}
+.btn-solid:hover{background:var(--red-bright);}
 .btn-outline{background:transparent;color:var(--black);border:1px solid rgba(0,0,0,0.35);}
 .btn-outline:hover{border-color:var(--red);color:var(--red);}
-
 section{padding:2.5rem 1.5rem;max-width:1200px;margin:0 auto;}
 .sec-head{margin-bottom:2rem;}
 .sec-head-line{display:flex;align-items:center;gap:1rem;margin-bottom:.4rem;}
-.sec-head-line::before{content:'//';color:var(--red);font-size:13px;}
-.sec-head h2{font-family:'VT323',monospace;font-size:26px;letter-spacing:4px;text-transform:uppercase;color:var(--black);}
+.sec-head-line::before{content:'//';color:var(--red);font-size:14px;}
+.sec-head h2{font-family:'VT323',monospace;font-size:28px;letter-spacing:4px;text-transform:uppercase;color:var(--black);}
 .sec-underline{width:32px;height:2px;background:var(--red);margin-top:6px;}
-
 .filters{display:flex;gap:6px;margin-bottom:1.5rem;flex-wrap:wrap;}
-.ftab{
-  font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;
-  background:transparent;border:1px solid rgba(0,0,0,0.2);
-  color:var(--text-muted);padding:6px 12px;cursor:pointer;transition:all 0.15s;border-radius:0;
-}
+.ftab{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:transparent;border:1px solid rgba(0,0,0,0.2);color:var(--text-muted);padding:7px 14px;cursor:pointer;transition:all 0.15s;border-radius:0;}
 .ftab:hover{border-color:var(--red);color:var(--text);}
 .ftab.active{border-color:var(--red);color:var(--red);background:var(--red-dim);}
-
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));
-  gap:3px;
-}
-.product-card{
-  position:relative;background:var(--surface);
-  border:1px solid rgba(0,0,0,0.15);
-  cursor:pointer;overflow:hidden;transition:all 0.2s;
-  aspect-ratio:1/1.05;display:flex;flex-direction:column;
-}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:3px;}
+.product-card{position:relative;background:var(--surface);border:1px solid rgba(0,0,0,0.15);cursor:pointer;overflow:hidden;transition:all 0.2s;display:flex;flex-direction:column;}
 .product-card:hover{border-color:var(--red);}
 .product-card:hover .card-overlay{opacity:1;}
-.product-card:hover .card-img-emoji{transform:scale(1.06);}
-.card-img{flex:1;display:flex;align-items:center;justify-content:center;background:var(--surface2);overflow:hidden;position:relative;}
-.card-img-emoji{font-size:72px;transition:transform 0.3s;}
-.card-overlay{position:absolute;inset:0;background:rgba(204,0,0,0.08);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;}
-.card-overlay span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#fff;border:1px solid var(--red);padding:8px 18px;background:var(--red);}
-.card-info{padding:.9rem 1.1rem;border-top:1px solid rgba(0,0,0,0.12);background:var(--surface);}
-.card-cat{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:4px;}
-.card-name{font-family:'VT323',monospace;font-size:18px;letter-spacing:2px;color:var(--black);margin-bottom:2px;}
-.card-price{font-size:13px;color:var(--red);letter-spacing:1px;font-weight:bold;}
-
+.product-card:hover .card-photo{transform:scale(1.03);}
+.card-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--surface2);position:relative;}
+.card-photo{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;}
+.card-overlay{position:absolute;inset:0;background:rgba(204,0,0,0.12);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;}
+.card-overlay span{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#fff;border:1px solid var(--red);padding:9px 20px;background:var(--red);}
+.card-info{padding:1rem 1.2rem;border-top:1px solid rgba(0,0,0,0.12);background:var(--surface);}
+.card-cat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:5px;}
+.card-name{font-family:'VT323',monospace;font-size:20px;letter-spacing:2px;color:var(--black);margin-bottom:4px;}
+.card-price{font-size:14px;color:var(--red);letter-spacing:1px;font-weight:bold;}
+.card-charity{font-size:10px;color:var(--text-light);margin-top:5px;}
 .about-layout{display:grid;grid-template-columns:1fr 2fr;gap:2rem;align-items:start;}
 @media(max-width:700px){.about-layout{grid-template-columns:1fr;}}
 .about-id{border:1px solid rgba(0,0,0,0.15);padding:1.8rem;text-align:center;background:var(--surface);}
 .about-id-icon{font-size:56px;margin-bottom:1rem;}
-.about-id-name{font-family:'VT323',monospace;font-size:30px;letter-spacing:4px;color:var(--black);margin-bottom:.8rem;}
-.about-id-bio{font-size:12px;color:var(--text-muted);line-height:1.9;}
+.about-id-name{font-family:'VT323',monospace;font-size:32px;letter-spacing:4px;color:var(--black);margin-bottom:.8rem;}
+.about-id-bio{font-size:14px;color:var(--text-muted);line-height:1.9;}
 .about-panels{display:flex;flex-direction:column;gap:2px;}
-.apanel{border:1px solid rgba(0,0,0,0.12);padding:1.2rem 1.4rem;background:var(--surface);}
-.apanel-title{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:.9rem;}
+.apanel{border:1px solid rgba(0,0,0,0.12);padding:1.3rem 1.5rem;background:var(--surface);}
+.apanel-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:.9rem;}
 .apanel-title::before{content:'> ';}
-.spec-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.08);font-size:12px;gap:.5rem;}
+.spec-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.08);font-size:13px;gap:.5rem;}
 .spec-row:last-child{border-bottom:none;}
 .spec-k{color:var(--text-light);}
 .spec-v{color:var(--black);text-align:right;}
-.apanel p{font-size:12px;color:var(--text-muted);line-height:1.9;}
+.apanel p{font-size:14px;color:var(--text-muted);line-height:1.9;}
 .apanel p+p{margin-top:.6rem;}
-
+.apanel a{color:var(--red);}
 .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:3px;align-items:start;}
 @media(max-width:700px){.contact-layout{grid-template-columns:1fr;}}
 .cblock{border:1px solid rgba(0,0,0,0.12);padding:1.5rem;background:var(--surface);}
-.cblock-title{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:1rem;}
+.cblock-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:1rem;}
 .cblock-title::before{content:'> ';}
-.cblock p{font-size:12px;color:var(--text-muted);line-height:1.9;margin-bottom:.6rem;}
-.cblock a{color:var(--red);text-decoration:none;font-size:13px;}
+.cblock p{font-size:13px;color:var(--text-muted);line-height:1.9;margin-bottom:.6rem;}
+.cblock a{color:var(--red);text-decoration:none;font-size:14px;}
 .cblock a:hover{text-decoration:underline;}
 .template-tabs{display:flex;gap:4px;margin-bottom:1rem;flex-wrap:wrap;}
-.ttab{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;background:transparent;border:1px solid rgba(0,0,0,0.2);color:var(--text-muted);padding:5px 12px;cursor:pointer;transition:all 0.15s;border-radius:0;}
+.ttab{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;background:transparent;border:1px solid rgba(0,0,0,0.2);color:var(--text-muted);padding:6px 13px;cursor:pointer;transition:all 0.15s;border-radius:0;}
 .ttab.active,.ttab:hover{border-color:var(--red);color:var(--red);}
-.email-subject{font-size:10px;color:var(--text-light);margin-bottom:6px;letter-spacing:1px;}
-.email-body{background:var(--surface2);border:1px solid rgba(0,0,0,0.15);padding:1rem;font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-muted);line-height:1.9;min-height:180px;white-space:pre-wrap;margin-bottom:1rem;}
-.send-btn{width:100%;background:var(--red);color:#fff;border:none;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:12px;cursor:pointer;transition:all 0.15s;}
+.email-subject{font-size:11px;color:var(--text-light);margin-bottom:6px;letter-spacing:1px;}
+.email-body{background:var(--surface2);border:1px solid rgba(0,0,0,0.15);padding:1rem;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text-muted);line-height:1.9;min-height:180px;white-space:pre-wrap;margin-bottom:1rem;}
+.send-btn{width:100%;background:var(--red);color:#fff;border:none;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:13px;cursor:pointer;transition:all 0.15s;}
 .send-btn:hover{background:var(--red-bright);}
-
 .modal-overlay{display:none;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,0.6);backdrop-filter:blur(2px);align-items:center;justify-content:center;padding:1.5rem;}
 .modal-overlay.open{display:flex;}
-.modal{background:var(--bg);border:1px solid var(--red-border);border-top:3px solid var(--red);padding:1.8rem;max-width:480px;width:100%;position:relative;max-height:90vh;overflow-y:auto;}
-.modal-close-x{position:absolute;top:1rem;right:1rem;background:transparent;border:none;color:var(--text-muted);font-size:18px;cursor:pointer;font-family:'Share Tech Mono',monospace;}
+.modal{background:var(--bg);border:1px solid var(--red-border);border-top:3px solid var(--red);padding:1.8rem;max-width:500px;width:100%;position:relative;max-height:90vh;overflow-y:auto;}
+.modal-close-x{position:absolute;top:1rem;right:1rem;background:transparent;border:none;color:var(--text-muted);font-size:20px;cursor:pointer;font-family:'Share Tech Mono',monospace;}
 .modal-close-x:hover{color:var(--red);}
-.modal-cat{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text-light);margin-bottom:.5rem;}
-.modal-name{font-family:'VT323',monospace;font-size:28px;letter-spacing:3px;color:var(--black);margin-bottom:.8rem;}
-.modal-desc{font-size:12px;color:var(--text-muted);line-height:1.9;margin-bottom:1rem;}
-.modal-price{font-family:'VT323',monospace;font-size:30px;color:var(--red);margin-bottom:.4rem;}
-.modal-note{font-size:10px;color:var(--text-light);letter-spacing:1px;margin-bottom:1.2rem;}
+.modal-photo{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:1.2rem;}
+.modal-cat{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-light);margin-bottom:.5rem;}
+.modal-name{font-family:'VT323',monospace;font-size:30px;letter-spacing:3px;color:var(--black);margin-bottom:.6rem;}
+.modal-desc{font-size:13px;color:var(--text-muted);line-height:1.9;margin-bottom:.8rem;}
+.modal-charity{font-size:12px;color:var(--text-dim);line-height:1.8;margin-bottom:1rem;padding:.7rem;border:1px solid var(--red-border);background:var(--red-dim);}
+.modal-charity a{color:var(--red);font-weight:bold;}
+.modal-price{font-family:'VT323',monospace;font-size:32px;color:var(--red);margin-bottom:.4rem;}
+.modal-note{font-size:11px;color:var(--text-light);letter-spacing:1px;margin-bottom:1.2rem;}
 .modal-actions{display:flex;gap:.8rem;flex-wrap:wrap;}
-.modal-btn-close{background:transparent;border:1px solid rgba(0,0,0,0.2);color:var(--text-muted);font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 18px;cursor:pointer;}
+.modal-btn-close{background:transparent;border:1px solid rgba(0,0,0,0.2);color:var(--text-muted);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 18px;cursor:pointer;}
 .modal-btn-close:hover{border-color:var(--red);color:var(--red);}
-.modal-btn-order{background:var(--red);color:#fff;border:none;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;cursor:pointer;text-decoration:none;display:inline-block;}
+.modal-btn-order{background:var(--red);color:#fff;border:none;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;cursor:pointer;text-decoration:none;display:inline-block;}
 .modal-btn-order:hover{background:var(--red-bright);}
-
-footer{border-top:2px solid var(--red);padding:1.2rem 1.5rem;text-align:center;font-size:10px;color:var(--text-muted);letter-spacing:2px;background:var(--surface);}
+footer{border-top:2px solid var(--red);padding:1.2rem 1.5rem;text-align:center;font-size:11px;color:var(--text-muted);letter-spacing:2px;background:var(--surface);}
 footer a{color:var(--red);text-decoration:none;}
 </style>
 </head>
@@ -195,9 +141,7 @@ footer a{color:var(--red);text-decoration:none;}
     </div>
     <div class="filters">
       <button class="ftab active" onclick="filterProducts('all',this)">All</button>
-      <button class="ftab" onclick="filterProducts('miniatures',this)">Miniatures</button>
-      <button class="ftab" onclick="filterProducts('functional',this)">Functional</button>
-      <button class="ftab" onclick="filterProducts('decorative',this)">Decorative</button>
+      <button class="ftab" onclick="filterProducts('keychains',this)">Keychains</button>
       <button class="ftab" onclick="filterProducts('custom',this)">Custom</button>
     </div>
     <div class="product-grid" id="shop-grid"></div>
@@ -212,26 +156,30 @@ footer a{color:var(--red);text-decoration:none;}
     </div>
     <div class="about-layout">
       <div class="about-id">
-        <div class="about-id-icon">🖨</div>
+        <div class="about-id-icon">&#x1F5A8;</div>
         <div class="about-id-name">HAMEHH</div>
-        <p class="about-id-bio">Printing everything from tabletop miniatures to functional parts and decorative art. Every piece is made to order and built with care.</p>
+        <p class="about-id-bio">Printing everything from keychains to functional parts and decorative art. Every piece is made to order and built with care.</p>
       </div>
       <div class="about-panels">
         <div class="apanel">
           <div class="apanel-title">Setup</div>
           <div class="spec-row"><span class="spec-k">Printer</span><span class="spec-v">Bambu Lab P2S</span></div>
-          <div class="spec-row"><span class="spec-k">Layer Resolution</span><span class="spec-v">0.05mm – 0.3mm</span></div>
+          <div class="spec-row"><span class="spec-k">Layer Resolution</span><span class="spec-v">0.05mm &ndash; 0.3mm</span></div>
           <div class="spec-row"><span class="spec-k">Materials</span><span class="spec-v">PLA, PETG, ABS, ASA</span></div>
           <div class="spec-row"><span class="spec-k">Colors</span><span class="spec-v">30+ available</span></div>
         </div>
         <div class="apanel">
           <div class="apanel-title">How It Works</div>
           <p>Browse the shop, find something you like, and email me to place an order. Include the item name, your color preference, and quantity. I'll confirm availability and send a payment link.</p>
-          <p>Have your own design? Send me an STL or describe the idea — I'll quote you within 48 hours.</p>
+          <p>Have your own design? Send me an STL or describe the idea &mdash; I'll quote you within 48 hours.</p>
         </div>
         <div class="apanel">
           <div class="apanel-title">Turnaround</div>
-          <p>Standard prints: 5–10 business days. Custom or large orders: 2–3 weeks. Rush orders available on request.</p>
+          <p>Standard prints: 5&ndash;10 business days. Custom or large orders: 2&ndash;3 weeks. Rush orders available on request.</p>
+        </div>
+        <div class="apanel">
+          <div class="apanel-title">Giving Back</div>
+          <p>50% of proceeds from the Palestine Heart Keychain go directly to the <a href="https://www.pcrf.net" target="_blank">Palestine Children's Relief Fund (PCRF)</a> &mdash; a U.S.-registered 501(c)(3) nonprofit with a 4-star Charity Navigator rating for 12 consecutive years, delivering medical aid, food, and relief to children in Gaza.</p>
         </div>
       </div>
     </div>
@@ -249,7 +197,7 @@ footer a{color:var(--red);text-decoration:none;}
         <div class="cblock">
           <div class="cblock-title">Email</div>
           <p>For orders, quotes, and questions:</p>
-          <a href="mailto:your@email.com">your@email.com</a>
+          <a href="mailto:hamehhprintz@gmail.com">hamehhprintz@gmail.com</a>
         </div>
         <div class="cblock">
           <div class="cblock-title">Ordering</div>
@@ -273,7 +221,7 @@ footer a{color:var(--red);text-decoration:none;}
         </div>
         <div class="email-subject" id="tpl-subject"></div>
         <div class="email-body" id="tpl-body"></div>
-        <button class="send-btn" onclick="openEmail()">Open in Email App ↗</button>
+        <button class="send-btn" onclick="openEmail()">Open in Email App</button>
       </div>
     </div>
   </section>
@@ -282,93 +230,126 @@ footer a{color:var(--red);text-decoration:none;}
 </main>
 
 <footer>
-  © 2026 <a href="#">HAMEHH</a> &nbsp;|&nbsp; <a href="mailto:your@email.com">your@email.com</a>
+  &copy; 2026 <a href="#">HAMEHH</a> &nbsp;|&nbsp; <a href="mailto:hamehhprintz@gmail.com">hamehhprintz@gmail.com</a>
 </footer>
 
 <div class="modal-overlay" id="modal" onclick="maybeCloseModal(event)">
   <div class="modal" id="modal-box">
-    <button class="modal-close-x" onclick="closeModal()">✕</button>
+    <button class="modal-close-x" onclick="closeModal()">&#x2715;</button>
+    <img class="modal-photo" id="m-photo" src="" alt="">
     <div class="modal-cat" id="m-cat"></div>
     <div class="modal-name" id="m-name"></div>
     <div class="modal-desc" id="m-desc"></div>
+    <div class="modal-charity" id="m-charity" style="display:none;"></div>
     <div class="modal-price" id="m-price"></div>
-    <div class="modal-note">> email to order — include item name, color &amp; quantity</div>
+    <div class="modal-note">&gt; email to order &mdash; include item name, color &amp; quantity</div>
     <div class="modal-actions">
       <button class="modal-btn-close" onclick="closeModal()">Close</button>
-      <a class="modal-btn-order" id="m-link" href="#">Email to Order ↗</a>
+      <a class="modal-btn-order" id="m-link" href="#">Email to Order</a>
     </div>
   </div>
 </div>
 
 <script>
-const products=[
-  {id:1,name:'Dragon Skull Relic',cat:'miniatures',emoji:'🐉',price:'$18.00',desc:'Highly detailed dragon skull. Perfect for D&D props, display pieces, or terrain. ~4 inches wide.'},
-  {id:2,name:'Modular Cable Clip Set',cat:'functional',emoji:'🔧',price:'$8.00',desc:'Set of 10 cable management clips in various sizes. Snap-fit, no tools needed. PLA.'},
-  {id:3,name:'Geometric Wall Panel',cat:'decorative',emoji:'◈',price:'$24.00',desc:'Interlocking hex wall panels with precision-fit edges. Each tile ~6 inches.'},
-  {id:4,name:'Space Marine Stand-In',cat:'miniatures',emoji:'⚔️',price:'$12.00',desc:'32mm scale armored warrior compatible with popular tabletop wargames.'},
-  {id:5,name:'Articulated Flexi Dragon',cat:'decorative',emoji:'🐲',price:'$22.00',desc:'Print-in-place fully articulated dragon. No assembly — just flex it.'},
-  {id:6,name:'Shelf Bracket',cat:'functional',emoji:'📐',price:'$14.00',desc:'Load-bearing wall shelf bracket, PETG. Rated up to 15 lbs. Multiple depths available.'},
-  {id:7,name:'Dice Tower + Tray',cat:'miniatures',emoji:'🎲',price:'$32.00',desc:'Gothic-style dice tower with removable felt-lined tray.'},
-  {id:8,name:'Custom Name Plate',cat:'custom',emoji:'🏷️',price:'From $15',desc:'Fully personalized name or desk plate. Choose font, size, text, and color.'},
-  {id:9,name:'Succulent Hex Planter',cat:'decorative',emoji:'🪴',price:'$16.00',desc:'Honeycomb-textured mini planter for succulents. Drainage hole included. ~3 inches wide.'},
+const products = [
+  {
+    id: 1,
+    name: 'Palestine Heart Keychain',
+    cat: 'keychains',
+    photo: '6059.jpg',
+    price: '$4.00',
+    charity: true,
+    desc: 'Multi-color PLA keychain in the colors of the Palestinian flag. Includes a keyring hole. Lightweight and durable. Color combinations available on request.'
+  }
 ];
-function renderGrid(list,id){
-  document.getElementById(id).innerHTML=list.map(p=>`
+
+function renderGrid(list, id) {
+  document.getElementById(id).innerHTML = list.map(p => `
     <div class="product-card" onclick="openModal(${p.id})">
-      <div class="card-img"><div class="card-img-emoji">${p.emoji}</div><div class="card-overlay"><span>View Details</span></div></div>
+      <div class="card-img-wrap">
+        <img class="card-photo" src="${p.photo}" alt="${p.name}" loading="lazy">
+        <div class="card-overlay"><span>View Details</span></div>
+      </div>
       <div class="card-info">
         <div class="card-cat">${p.cat}</div>
         <div class="card-name">${p.name}</div>
         <div class="card-price">${p.price}</div>
+        ${p.charity ? '<div class="card-charity">&#10084; 50% of proceeds go to PCRF Gaza Relief</div>' : ''}
       </div>
     </div>`).join('');
 }
-renderGrid(products,'shop-grid');
-function filterProducts(cat,el){
-  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+
+renderGrid(products, 'shop-grid');
+
+function filterProducts(cat, el) {
+  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-  renderGrid(cat==='all'?products:products.filter(p=>p.cat===cat),'shop-grid');
+  renderGrid(cat === 'all' ? products : products.filter(p => p.cat === cat), 'shop-grid');
 }
-function showPage(name){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
-  document.getElementById('page-'+name).classList.add('active');
-  document.getElementById('nav-'+name).classList.add('active');
-  window.scrollTo(0,0);
+
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.getElementById('nav-' + name).classList.add('active');
+  window.scrollTo(0, 0);
 }
-function openModal(id){
-  const p=products.find(x=>x.id===id);
-  document.getElementById('m-cat').textContent=p.cat;
-  document.getElementById('m-name').textContent=p.name;
-  document.getElementById('m-desc').textContent=p.desc;
-  document.getElementById('m-price').textContent=p.price;
-  const sub=encodeURIComponent('Order: '+p.name);
-  const bod=encodeURIComponent('Hi,\n\nI\'d like to order: '+p.name+'\nColor: \nQuantity: \n\nThanks!');
-  document.getElementById('m-link').href='mailto:your@email.com?subject='+sub+'&body='+bod;
+
+function openModal(id) {
+  const p = products.find(x => x.id === id);
+  document.getElementById('m-photo').src = p.photo;
+  document.getElementById('m-photo').alt = p.name;
+  document.getElementById('m-cat').textContent = p.cat;
+  document.getElementById('m-name').textContent = p.name;
+  document.getElementById('m-desc').textContent = p.desc;
+  document.getElementById('m-price').textContent = p.price;
+  const charityEl = document.getElementById('m-charity');
+  if (p.charity) {
+    charityEl.style.display = 'block';
+    charityEl.innerHTML = '&#10084; 50% of proceeds from this item are donated to the <a href="https://www.pcrf.net" target="_blank">Palestine Children\'s Relief Fund (PCRF)</a> for Gaza relief.';
+  } else {
+    charityEl.style.display = 'none';
+  }
+  const sub = encodeURIComponent('Order: ' + p.name);
+  const bod = encodeURIComponent('Hi,\n\nI\'d like to order: ' + p.name + '\nColor: \nQuantity: \n\nThanks!');
+  document.getElementById('m-link').href = 'mailto:hamehhprintz@gmail.com?subject=' + sub + '&body=' + bod;
   document.getElementById('modal').classList.add('open');
 }
-function closeModal(){document.getElementById('modal').classList.remove('open');}
-function maybeCloseModal(e){if(e.target.id==='modal')closeModal();}
-const tpls={
-  order:{sub:'To: your@email.com  |  Subject: Order Request',body:"Hi,\n\nI'd like to order the following:\n\nItem: [Name of the print]\nColor: [Preferred color]\nQuantity: [How many]\n\nPlease confirm cost and ship date.\n\nThanks!"},
-  custom:{sub:'To: your@email.com  |  Subject: Custom Print Request',body:"Hi,\n\nCustom print request:\n\nDescription: [Your idea or design]\nMaterial: [PLA / PETG / ASA / No pref]\nSize: [Approx dimensions]\nQuantity: [How many]\nBudget: [Range]\n\nCan also provide an STL file.\n\nThanks!"},
-  question:{sub:'To: your@email.com  |  Subject: General Question',body:"Hi,\n\nI have a question:\n\n[Your question here]\n\nThanks!"}
+
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+function maybeCloseModal(e) { if (e.target.id === 'modal') closeModal(); }
+
+const tpls = {
+  order: {
+    sub: 'To: hamehhprintz@gmail.com  |  Subject: Order Request',
+    body: "Hi,\n\nI'd like to order the following:\n\nItem: [Name of the print]\nColor: [Preferred color]\nQuantity: [How many]\n\nPlease confirm cost and ship date.\n\nThanks!"
+  },
+  custom: {
+    sub: 'To: hamehhprintz@gmail.com  |  Subject: Custom Print Request',
+    body: "Hi,\n\nCustom print request:\n\nDescription: [Your idea or design]\nMaterial: [PLA / PETG / ASA / No pref]\nSize: [Approx dimensions]\nQuantity: [How many]\nBudget: [Range]\n\nCan also provide an STL file.\n\nThanks!"
+  },
+  question: {
+    sub: 'To: hamehhprintz@gmail.com  |  Subject: General Question',
+    body: "Hi,\n\nI have a question:\n\n[Your question here]\n\nThanks!"
+  }
 };
-function setTpl(key,el){
-  document.querySelectorAll('.ttab').forEach(t=>t.classList.remove('active'));
+
+function setTpl(key, el) {
+  document.querySelectorAll('.ttab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-  document.getElementById('tpl-subject').textContent=tpls[key].sub;
-  document.getElementById('tpl-body').textContent=tpls[key].body;
+  document.getElementById('tpl-subject').textContent = tpls[key].sub;
+  document.getElementById('tpl-body').textContent = tpls[key].body;
 }
-function openEmail(){
-  const active=document.querySelector('.ttab.active').textContent.trim().toLowerCase();
-  const map={order:'order',custom:'custom',question:'question'};
-  const t=tpls[map[active]||'order'];
-  const sub=t.sub.split('Subject: ')[1]||'Inquiry';
-  window.location.href='mailto:your@email.com?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(t.body);
+
+function openEmail() {
+  const active = document.querySelector('.ttab.active').textContent.trim().toLowerCase();
+  const map = { order: 'order', custom: 'custom', question: 'question' };
+  const t = tpls[map[active] || 'order'];
+  const sub = t.sub.split('Subject: ')[1] || 'Inquiry';
+  window.location.href = 'mailto:hamehhprintz@gmail.com?subject=' + encodeURIComponent(sub) + '&body=' + encodeURIComponent(t.body);
 }
-setTpl('order',document.querySelector('.ttab.active'));
+
+setTpl('order', document.querySelector('.ttab.active'));
 </script>
 </body>
 </html>
-
