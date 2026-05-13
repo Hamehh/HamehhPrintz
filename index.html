@@ -58,16 +58,21 @@ section{padding:2.5rem 1.5rem;max-width:1200px;margin:0 auto;}
 /* PAYMENT PAGE */
 .pay-intro{font-size:13px;color:var(--text-muted);line-height:1.9;margin-bottom:2.5rem;max-width:520px;}
 .pay-methods{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:3px;margin-bottom:2rem;}
-.pay-card{
-  background:var(--surface);border:1px solid rgba(0,0,0,0.15);
-  padding:2.5rem 1.5rem;text-align:center;
-  cursor:pointer;transition:all 0.2s;text-decoration:none;display:block;
-}
-.pay-card:hover{border-color:var(--red);transform:translateY(-2px);}
+.pay-card{background:var(--surface);border:1px solid rgba(0,0,0,0.15);padding:2rem 1.5rem;text-align:center;display:block;}
 .pay-card-icon{font-size:44px;margin-bottom:1rem;}
-.pay-card-name{font-family:'VT323',monospace;font-size:28px;letter-spacing:3px;color:var(--black);margin-bottom:.5rem;}
-.pay-card-handle{font-size:13px;color:var(--red);letter-spacing:1px;margin-bottom:.5rem;}
-.pay-card-note{font-size:11px;color:var(--text-light);line-height:1.7;}
+.pay-card-name{font-family:'VT323',monospace;font-size:28px;letter-spacing:3px;color:var(--black);margin-bottom:.6rem;}
+.pay-card-handle{
+  font-size:18px;color:var(--red);letter-spacing:1px;margin-bottom:1rem;
+  font-family:'VT323',monospace;
+}
+.pay-card-note{font-size:11px;color:var(--text-light);line-height:1.7;margin-bottom:1.2rem;}
+.copy-btn{
+  font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  background:transparent;border:1px solid var(--red-border);color:var(--red);
+  padding:8px 20px;cursor:pointer;transition:all 0.15s;border-radius:0;
+}
+.copy-btn:hover{background:var(--red-dim);}
+.copy-btn.copied{background:var(--red);color:#fff;border-color:var(--red);}
 .pay-tip{font-size:11px;color:var(--text-light);letter-spacing:1px;padding:1rem 1.2rem;border:1px solid rgba(0,0,0,0.1);background:var(--surface);max-width:560px;line-height:1.8;}
 .pay-tip::before{content:'> ';color:var(--red);}
 
@@ -126,7 +131,6 @@ section{padding:2.5rem 1.5rem;max-width:1200px;margin:0 auto;}
 .modal-btn-close:hover{border-color:var(--red);color:var(--red);}
 .modal-btn-order{background:var(--red);color:#fff;border:none;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;cursor:pointer;text-decoration:none;display:inline-block;}
 .modal-btn-order:hover{background:var(--red-bright);}
-
 footer{border-top:2px solid var(--red);padding:1.2rem 1.5rem;text-align:center;font-size:11px;color:var(--text-muted);letter-spacing:2px;background:var(--surface);}
 footer a{color:var(--red);text-decoration:none;}
 </style>
@@ -262,22 +266,24 @@ footer a{color:var(--red);text-decoration:none;}
       <div class="sec-head-line"><h2>Pay</h2></div>
       <div class="sec-underline"></div>
     </div>
-    <p class="pay-intro">Choose your preferred payment method below. Tap the option that works best for you and send the amount confirmed in your order.</p>
+    <p class="pay-intro">Choose your preferred payment method. Open the app, search the username below, and send the amount confirmed in your order.</p>
     <div class="pay-methods">
 
-      <a class="pay-card" href="https://cash.app/$hamehh" target="_blank">
+      <div class="pay-card">
         <div class="pay-card-icon">&#x1F4B8;</div>
         <div class="pay-card-name">Cash App</div>
         <div class="pay-card-handle">$hamehh</div>
-        <div class="pay-card-note">Tap to open Cash App and send payment directly.</div>
-      </a>
+        <div class="pay-card-note">Open Cash App, tap the $ icon, and search the username above.</div>
+        <button class="copy-btn" onclick="copyText('$hamehh', this)">Copy Username</button>
+      </div>
 
-      <a class="pay-card" href="https://paypal.me/Hamehhh" target="_blank">
+      <div class="pay-card">
         <div class="pay-card-icon">&#x1F4B3;</div>
         <div class="pay-card-name">PayPal</div>
-        <div class="pay-card-handle">paypal.me/Hamehhh</div>
-        <div class="pay-card-note">Works worldwide. No PayPal account required to pay.</div>
-      </a>
+        <div class="pay-card-handle">Hamehhh</div>
+        <div class="pay-card-note">Open PayPal, tap Send, and search the username above.</div>
+        <button class="copy-btn" onclick="copyText('Hamehhh', this)">Copy Username</button>
+      </div>
 
     </div>
     <div class="pay-tip">After payment, email hamehhprintz@gmail.com with your order details and shipping address to confirm your order.</div>
@@ -350,6 +356,31 @@ function showPage(name) {
   document.getElementById('page-' + name).classList.add('active');
   document.getElementById('nav-' + name).classList.add('active');
   window.scrollTo(0, 0);
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy Username';
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    // Fallback for older browsers
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy Username';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
 }
 
 function openModal(id) {
